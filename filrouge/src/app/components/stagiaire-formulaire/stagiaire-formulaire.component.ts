@@ -38,11 +38,23 @@ export class StagiaireFormulaireComponent {
 
   addStagiaire(): void {
     this.stagiaires.push(this.stagiairesForm.value);
-    this.stagiaireService.createStagiaire(this.stagiairesForm.value).subscribe((stagiairesForm) => {
-      this.stagiaire = stagiairesForm
-      alert("Stagiaire créé avec succès !")
-    });
+  
+    this.stagiaireService.createStagiaire(this.stagiairesForm.value)
+      .subscribe({
+        next: (stagiairesForm) => {
+          this.stagiaire = stagiairesForm;
+          alert("Stagiaire créé avec succès !");
+        },
+        error: (error) => {
+          alert("Erreur lors de la création du stagiaire");
+          console.log(error);
+        },
+        complete: () => {
+          console.log("Inscription complete");
+        }
+      });
   }
+  
 
   onSubmit() {
     this.submitted = true;

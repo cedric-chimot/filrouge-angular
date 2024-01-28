@@ -1,60 +1,64 @@
-<form [formGroup]="stagiairesForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>Nom : </label>
-        <input type="text" formControlName="nom">
-        @if (submitted && !form['nom'].valid) {
-            <span>*Nom invalide</span>
-        }
-    </div>
-    <div>
-        <label>Prenom : </label>
-        <input type="text" formControlName="prenom">
-        @if (submitted && !form['prenom'].valid) {
-            <span>*Prenom invalide</span>
-        }
-    </div>
-    <div>
-        <label>Telephone : </label>
-        <input type="email" formControlName="telephone">
-        @if (submitted && !form['telephone'].valid) {
-            <span>*Téléphone invalide</span>
-        }
-    </div>
-    <div>
-        <label>Email : </label>
-        <input type="email" formControlName="email">
-        @if (submitted && !form['email'].valid) {
-            <span>*Email invalide</span>
-        }
-    </div>
-    <div>
-        <label>Pseudo : </label>
-        <input type="text" formControlName="pseudo">
-        @if (submitted && !form['pseudo'].valid) {
-            <span>*Pseudo invalide</span>
-        }
-    </div>
-    <div>
-        <label>Mot de passe : </label>
-        <input type="text" formControlName="mdp">
-        @if (submitted && !form['mdp'].valid) {
-            <span>
-                *le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial
-            </span>
-        }
-    </div>
-    <div>
-        <label>Rôle : </label>
-        <select name="select" formControlName="role">
-            <option value=""></option>
-            <option value="CANDIDAT">Candidat</option>
-            <option value="FORMATEUR">Formateur</option>
-        </select>
-        @if (submitted && !form['email'].valid) {
-            <span>*Role invalide</span>
-        }
-    </div>
-    <div>
-        <button type="submit">Ajouter</button>
-    </div>
-</form>
+<h1>Formulaire d'inscription</h1>
+<div class="container">
+    <form [formGroup]="stagiairesForm" (ngSubmit)="onSubmit()" class="form">
+        <div>
+            <label>Nom : </label>
+            <input type="text" formControlName="nom">
+            @if (submitted && !form['nom'].valid) {
+                <span>*Nom invalide</span>
+            }
+        </div>
+        <div>
+            <label>Prenom : </label>
+            <input type="text" formControlName="prenom">
+            @if (submitted && !form['prenom'].valid) {
+                <span>*Prenom invalide</span>
+            }
+        </div>
+        <div>
+            <label>Telephone : </label>
+            <input type="email" formControlName="telephone">
+            @if (submitted && !form['telephone'].valid) {
+                <span>*Téléphone invalide</span>
+            }
+        </div>
+        <div>
+            <label>Email : </label>
+            <input type="email" formControlName="email">
+            @if (submitted && !form['email'].valid) {
+                <span>*Email invalide</span>
+            }
+        </div>
+        <div>
+            <label>Pseudo : </label>
+            <input type="text" formControlName="pseudo">
+            @if (submitted && !form['pseudo'].valid) {
+                <span>*Pseudo invalide</span>
+            }
+        </div>
+        <div>
+            <label>Mot de passe : </label>
+            <input type="text" formControlName="mdp">
+            @if (submitted && !form['mdp'].valid) {
+                <span>
+                    *le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial
+                </span>
+            }
+        </div>
+        <div>
+            <label>Rôle : </label>
+            <select name="select" formControlName="role">
+                <option value=""></option>
+                <option value="CANDIDAT">Candidat</option>
+                <option value="FORMATEUR">Formateur</option>
+            </select>
+            @if (submitted && !form['email'].valid) {
+                <span>*Role invalide</span>
+            }
+        </div>
+        <div>
+            <button type="submit">S'inscrire</button>
+            <button type="reset">Annuler</button>
+        </div>
+    </form>
+</div>
