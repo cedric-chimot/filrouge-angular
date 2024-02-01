@@ -1,28 +1,32 @@
 import { Component } from '@angular/core';
-import {  FormBuilder, FormGroup, ReactiveFormsModule, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StagiaireServiceService } from '../../services/stagiaires/stagiaire-service.service';
 import { Stagiaires } from '../../models/stagiaires.model';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-stagiaire-formulaire',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './stagiaire-formulaire.component.html',
-  styleUrl: './stagiaire-formulaire.component.css'
+  styleUrls: ['./stagiaire-formulaire.component.css']
 })
+
 export class StagiaireFormulaireComponent {
   stagiairesForm: FormGroup = this.formBuider.group({
     nom: ['', Validators.required],
     prenom: ['', Validators.required],
     telephone: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
+    role: ['', Validators.required],
     pseudo: ['', Validators.required],
     mdp: ['', [
       Validators.required,
       Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/),
       Validators.minLength(8)
     ]],
-    role: ['', Validators.required],
   })
 
   submitted: boolean = false;
@@ -31,10 +35,6 @@ export class StagiaireFormulaireComponent {
   stagiaire!: Stagiaires;
 
   constructor(private formBuider: FormBuilder, private stagiaireService: StagiaireServiceService) {};
-
-  ngOnInit() {
-    
-  }
 
   addStagiaire(): void {
     this.stagiaires.push(this.stagiairesForm.value);
@@ -46,8 +46,12 @@ export class StagiaireFormulaireComponent {
           alert("Stagiaire créé avec succès !");
         },
         error: (error) => {
-          alert("Erreur lors de la création du stagiaire");
-          console.log(error);
+          if (error.status === 409) {
+            alert("Erreur lors de la création du stagiaire : Email déjà utilisé.");
+          } else {
+            alert("Erreur lors de la création du stagiaire");
+            console.log(error);
+          }
         },
         complete: () => {
           console.log("Inscription complete");
@@ -55,7 +59,6 @@ export class StagiaireFormulaireComponent {
       });
   }
   
-
   onSubmit() {
     this.submitted = true;
 
@@ -73,5 +76,5 @@ export class StagiaireFormulaireComponent {
   get form() {
     return this.stagiairesForm.controls;
   }
-
+ 
 }
