@@ -4,14 +4,16 @@ import { StagiaireServiceService } from '../../services/stagiaires/stagiaire-ser
 import { Stagiaires } from '../../models/stagiaires.model';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NavBarComponent } from "../../commons/navbar/nav-bar.component";
+import { FooterComponent } from "../../commons/footer/footer.component";
 
 
 @Component({
-  selector: 'app-stagiaire-formulaire',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
-  templateUrl: './stagiaire-formulaire.component.html',
-  styleUrls: ['./stagiaire-formulaire.component.css']
+    selector: 'app-stagiaire-formulaire',
+    standalone: true,
+    templateUrl: './stagiaire-formulaire.component.html',
+    styleUrls: ['./stagiaire-formulaire.component.css'],
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NavBarComponent, FooterComponent]
 })
 
 export class StagiaireFormulaireComponent {

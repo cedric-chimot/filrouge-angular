@@ -1,0 +1,13 @@
+.content {
+    flex: 1;
+    padding: 20px; 
+    background-color: #F2EEE4;
+}
+
+.flex {
+    display: flex;
+}
+
+.admin-sections {
+    display: flex;
+}
