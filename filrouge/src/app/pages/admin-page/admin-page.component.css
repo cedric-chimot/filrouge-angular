@@ -11,3 +11,19 @@
 .admin-sections {
     display: flex;
 }
+
+.card {
+    width: 18rem;
+    height: 18rem;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.card-body,
+table {
+    background-color: #5065a8;
+}
+
+span {
+    font-style: italic;
+}
