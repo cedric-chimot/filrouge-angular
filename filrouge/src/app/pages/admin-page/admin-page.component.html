@@ -4,11 +4,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 <div class="flex">
-    <div class="admin-sections">
-        <app-admin-sidebar></app-admin-sidebar>
-    </div>
-
-    <div class="content container-fluid d-flex align-items-center justify-content-center custom-container">
+    <div class="content container-fluid d-flex">
         <div class="container d-flex flex-column align-items-center">
             <h1 class="text-center my-4">TABLEAU DE BORD</h1>
             <div class="d-flex flex-wrap justify-content-center">
@@ -20,37 +16,33 @@
                 </div>
                 <div class="card">
                     <div class="card-body d-flex flex-column align-items-center text-white">
-                        <h5 class="card-title">Stagiaires</h5>
+                        <h5 class="card-title">Candidats</h5>
                         <span>(Nb d'inscrits)</span>
+                        <div class="mt-6">
+                            <p>{{ nbCandidats }}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
+                    <div class="card-body d-flex flex-column align-items-center text-white">
+                        <h5 class="card-title">Stagiaires</h5>
+                        <span>(Nb d'inscrits)</span>
+                        <p>{{ nbStagiaires }}</p>
+                    </div>
+                </div>
+                <div class="card mt-4">
                     <div class="card-body d-flex flex-column align-items-center text-white">
                         <h5 class="card-title">Formateurs</h5>
                         <span>(Disponible)</span>
                     </div>
                 </div>
+                <div class="card mt-4">
+                    <div class="card-body d-flex flex-column align-items-center text-white">
+                        <h5 class="card-title">Messages</h5>
+                        <span>(En attente)</span>
+                    </div>
+                </div>
             </div>
-            <div class="mt-4">
-                <h2 class="text-center my-4">Les prochaines Formations</h2>
-                <table class="table table-bordered text-center text-white">
-                    <tbody>
-                        <tr>
-                            <th>titre</th>
-                            <th>titre</th>
-                            <th>titre</th>
-                            <th>titre</th>
-                        </tr>
-                        <tr>
-                            <td>titre</td>
-                            <td>titre</td>
-                            <td>titre</td>
-                            <td>titre</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>    
 </div>
 
